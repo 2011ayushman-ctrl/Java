@@ -5,7 +5,7 @@ public class Main11{
     public static void main(String[] args) {
         boolean infiniteLoop = true;
         double[] accountBalance = new double[1000]; //this array will contain the account balance
-        String[] accountHolderName = new String[1000]; //this array will contain the account holder's name
+        String[] accountName = new String[1000]; //this array will contain the account holder's name
         int option, size = 100; //size will be the first account you want to begin from
         //infinite loop to keep our program running until we wish to end it.
         while (infiniteLoop) {
@@ -95,11 +95,38 @@ public class Main11{
 
                 if (accountIndex > size){
                     System.out.println("Account does not exist.");
-                    System.out
-                }
-            }
-        
-        }
+                    System.out.println("Terminating...");
+                } else {
+                    System.out.print("Enter the amount to be deposited: ");
+                    double amt = sc.nextDouble();
 
+                    accountBalance[accountIndex] += amt;
+                    System.out.println(accountName[accountIndex] + " your updated balance is : "
+                    + accountBalance[accountIndex] + " RS. \n ");
+                }
+                System.out.println("===========================");
+            } else if (option == 5) {
+                System.out.println("Account registered\n");
+
+                for (int i = 100; i< size; i++){
+                    System.out.println("account Number: " + i +", Name: " + accountName[i] + ", Balance: "
+                    + accountBalance[i] + "Rs. \n ");
+                }
+                System.out.println("==========================");
+            } else if (option == 6){
+
+                System.out.println("Terminating...");
+                System.out.println("Developed & Managed by Codingal");
+                System.out.println("Built with love in India");
+                infiniteLoop=false; //instead of this "System.exit(0);" can also be used
+            } else {
+
+                System.out.println("\n Invalid input.");
+                System.out.println("Terminating...");
+                System.out.println("Developed & Managed by Codingal");
+                System.out.println("Built with love in India");
+                System.exit(0);
+            }
+        }
     }
 }
